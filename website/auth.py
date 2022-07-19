@@ -1,18 +1,21 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 auth = Blueprint('auth', __name__)
 
-@auth.route('/login')
-def login():
-    return "<h1>Login Page Placeholder</h1>"
 
 @auth.route('/login')
 def login():
-    return "<h1>Login Page Placeholder</h1>"
+    return render_template('login.html')
 
-@auth.route('/login')
-def login():
-    return "<h1>Login Page Placeholder</h1>"
+
+@auth.route('/logout')
+def logout():
+    return render_template('logout.html')
+
+
+@auth.route('/signup')
+def singup():
+    return render_template('signup.html')
 
 
 
