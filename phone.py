@@ -30,7 +30,7 @@ class Phone:
         Prints the cosmetic attributes of the phone
     """
     def __init__(self, imei, scratches=None, dents=None, lcd_discoloration=None, missing_parts=None,
-                 cracks=None, markings=None, grade=None):
+                 cracks=None, markings=None, grade=None, battery_life=0):
         """
             Constructs all the necessary attributes for the phone object.
 
@@ -38,6 +38,8 @@ class Phone:
             ----------
                 imei : str
                     serial number of the device
+                battery_life: float
+                    the battery life of the device
                 scratches : str, optional
                     the degree of scratches on a device (default is None)
                 dents : str, optional
@@ -55,13 +57,14 @@ class Phone:
 
                 :return None
         """
-        self.imei = imei                                # serial number
-        self.scratch_condition = scratches                      #
-        self.dent_condition = dents                              # none, small, deep
-        self.lcd_discolored = lcd_discoloration         # Boolean
-        self.missing_parts = missing_parts              # Boolean
+        self.imei = imei                                  # serial number
+        self.battery_condition = battery_life
+        self.scratch_condition = scratches                # negligible, light, deep
+        self.dent_condition = dents                       # none, small, deep
+        self.lcd_discolored = lcd_discoloration           # Boolean
+        self.missing_parts = missing_parts                # Boolean
         self.cracked = cracks                             # Boolean
-        self.marked = markings                         # Boolean
+        self.marked = markings                            # Boolean
         self.grade = grade
 
     def cosmetic_report(self):
@@ -74,6 +77,7 @@ class Phone:
         """
         phone_stats = {
             "imei": self.imei,
+            "battery": self.battery_condition,
             "scratches": self.scratch_condition,
             "dents": self.dent_condition,
             "lcd discolored": self.lcd_discolored,
@@ -83,4 +87,5 @@ class Phone:
             "grade": self.grade
         }
         return phone_stats
+
 
