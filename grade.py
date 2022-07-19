@@ -1,5 +1,5 @@
 def grade(phone):
-    if phone.marked or phone.battery_condition < 30:                                        # options: True or False
+    if phone.marked or phone.battery_condition < 30:        # options: True or False
         phone.grade = 'F'
         return
     elif phone.missing_parts or phone.lcd_discolored:       # options: True or False

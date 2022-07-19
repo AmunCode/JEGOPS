@@ -5,3 +5,20 @@
     margin-right: auto;
     opacity: 90%;
 }
+.sign-up{
+    text-align: center;
+    margin-top: 50px;
+    color: midnightblue;
+}
+
+.form-group{
+    padding: 5px;
+    margin: auto;
+    width: 400px;
+}
+
+.btn{
+    display: block;
+    margin-left:auto;
+    margin-right: auto;
+}

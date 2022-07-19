@@ -2,14 +2,12 @@ from website import create_app
 from phone import Phone
 from grade import grade
 
+app = create_app()
 
-# app = create_app()
-#
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
 
-
-# f_phone = Phone('ftest', markings=True, missing_parts=False)
+f_phone = Phone('ftest', markings=True, missing_parts=False)
 
 b_phone = Phone('btest', markings=False, missing_parts=False, lcd_discoloration=False)
 b_phone2 = Phone('btest2', markings=False, missing_parts=False, lcd_discoloration=False, scratches='small', dents='shallow', battery_life = 44)
