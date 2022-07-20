@@ -11,7 +11,7 @@ def login():
     return render_template('login.html')
 
 
-@auth.route('/logout')
+@auth.route('/logout', methods=['GET', 'POST'])
 def logout():
     return render_template('logout.html')
 
