@@ -11,7 +11,7 @@ class Phone:
         serial number of the device
     scratches : str
         the degree of scratches on a device (default is None)
-    dent : str
+    dents : str
         the degree of dents on a device (default is None)
     lcd_discoloration: bool
         device lcd discolored (default is None)
@@ -19,7 +19,7 @@ class Phone:
         device is missing parts (default is None)
     cracks: bool
         devices has cracks (default is None)
-    marking: bool
+    markings: bool
         device has markings (default is None)
     grade: str
         the cosmetic grade attributed to the device (default is None)
@@ -50,7 +50,7 @@ class Phone:
                     device is missing internal or external parts (default is None)
                 cracks: bool, optional
                     devices has cracks (default is None)
-                marking: bool, optional
+                markings bool, optional
                     device has markings (default is None)
                 grade: str, optional
                     the cosmetic grade attributed to the device (default is None)
@@ -87,5 +87,4 @@ class Phone:
             "grade": self.grade
         }
         return phone_stats
-
 

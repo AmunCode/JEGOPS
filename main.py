@@ -10,11 +10,11 @@ if __name__ == '__main__':
 f_phone = Phone('ftest', markings=True, missing_parts=False)
 
 b_phone = Phone('btest', markings=False, missing_parts=False, lcd_discoloration=False)
-b_phone2 = Phone('btest2', markings=False, missing_parts=False, lcd_discoloration=False, scratches='small', dents='shallow', battery_life = 44)
-b_phone3 = Phone('btest3', markings=False, missing_parts=False, lcd_discoloration=False, scratches='large', battery_life = 77)
-b_phone4 = Phone('btest4', markings=False, missing_parts=True, lcd_discoloration=False, scratches='large', battery_life = 79)
-b_phone5 = Phone('btest5', markings=False, missing_parts=False, lcd_discoloration=False, scratches='large', battery_life = 90)
-b_phone6 = Phone('btest6', markings=False, missing_parts=False, lcd_discoloration=False, scratches='negligible', dents='shallow', battery_life =88)
+b_phone2 = Phone('btest2', markings=False, missing_parts=False, lcd_discoloration=False, scratches='small', dents='shallow', battery_life=44)
+b_phone3 = Phone('btest3', markings=False, missing_parts=False, lcd_discoloration=False, scratches='large', battery_life=77)
+b_phone4 = Phone('btest4', markings=False, missing_parts=True, lcd_discoloration=False, scratches='large', battery_life=79)
+b_phone5 = Phone('btest5', markings=False, missing_parts=False, lcd_discoloration=False, scratches='large', battery_life=90)
+b_phone6 = Phone('btest6', markings=False, missing_parts=False, lcd_discoloration=False, scratches='negligible', dents='shallow', battery_life=88)
 # d_phone1 = Phone('dtest1', markings=False, missing_parts=True)
 # d_phone2 = Phone('dtest2', markings=False, lcd_discoloration=True)
 #
