@@ -19,14 +19,11 @@ def logout():
 @auth.route('/signup', methods=['GET', 'POST'])
 def singup():
     if request.method == 'POST':
-        email = request.form.get('email')
         user_name = request.form.get('uName')
         password = request.form.get('password')
         confirm_password = request.form.get('confirm_password')
 
-        if len(email) < 6:
-            flash('Email must be great than 5 characters.', category='error')
-        elif len(user_name) < 4:
+        if len(user_name) < 4:
             flash('Email must be great than 5 characters.', category='error')
         elif password != confirm_password:
             flash('Email must be great than 5 characters.', category='error')
