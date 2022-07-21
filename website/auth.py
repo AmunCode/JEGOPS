@@ -1,4 +1,7 @@
-from flask import Blueprint, render_template, request, flash
+from flask import Blueprint, render_template, request, flash, redirect, url_for
+from . import db
+from .models import User
+from werkzeug.security import generate_password_hash, check_password_hash
 
 auth = Blueprint('auth', __name__)
 
@@ -8,6 +11,15 @@ def login():
     if request.method == 'POST':
         user_name = request.form.get('uName')
         password = request.form.get('password')
+        user = User.query.filter_by(user_name=user_name).first()
+        if user:
+            if check_password_hash(user.password, password):
+                flash('Logged in!', category='success')
+                # send to first page of grading process
+            else:
+                flash('Incorrect password', category='error')
+        else:
+            flash('User does not exist. please register.', category='error')
     return render_template('login.html')
 
 
@@ -23,13 +35,22 @@ def singup():
         password = request.form.get('password')
         confirm_password = request.form.get('confirm_password')
 
-        if len(user_name) < 4:
-            flash('Email must be great than 5 characters.', category='error')
+        user = User.query.filter_by(user_name=user_name).first()
+        if user:
+            flash('user already exists!', category='error')
+        elif len(user_name) < 5:
+            flash('Username must be great than 4 characters.', category='error')
+        elif len(password) < 7:
+            flash('password is too short, must be at least 7 characters.', category='error')
         elif password != confirm_password:
-            flash('Email must be great than 5 characters.', category='error')
+            flash('passwords do not match!', category='error')
         else:
             # all good, add to DB
+            new_user = User(user_name=user_name, password=generate_password_hash(password, method='sha512'))
+            db.session.add(new_user)
+            db.session.commit()
             flash('Account successfully created!', category='success')
+            return redirect(url_for('views.home'))
 
     return render_template('signup.html')
 
