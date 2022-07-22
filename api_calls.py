@@ -1,5 +1,6 @@
 import requests
 
+
 def get_device_info(imei):
     url = "https://clientapiv2.phonecheck.com/cloud/cloudDB/GetDeviceInfo"
 
@@ -17,4 +18,7 @@ def get_device_info(imei):
 
     print(device_info['BatteryHealthPercentage'])
 
+
 get_device_info('353220104534844')
+
+

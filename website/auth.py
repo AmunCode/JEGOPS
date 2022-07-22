@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, flash, redirect, url_for
 from . import db
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import login_user, login_required, logout_user, current_user
 
 auth = Blueprint('auth', __name__)
 
@@ -15,20 +16,25 @@ def login():
         if user:
             if check_password_hash(user.password, password):
                 flash('Logged in!', category='success')
+                login_user(user, remember=True)
+                return redirect(url_for('views.home'))
                 # send to first page of grading process
             else:
                 flash('Incorrect password', category='error')
         else:
             flash('User does not exist. please register.', category='error')
-    return render_template('login.html')
+    return render_template('login.html', user=current_user)
 
 
 @auth.route('/logout', methods=['GET', 'POST'])
+@login_required
 def logout():
+    logout_user()
     return render_template('logout.html')
 
 
 @auth.route('/signup', methods=['GET', 'POST'])
+@login_required
 def singup():
     if request.method == 'POST':
         user_name = request.form.get('uName')
