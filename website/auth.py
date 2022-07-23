@@ -17,7 +17,7 @@ def login():
             if check_password_hash(user.password, password):
                 flash('Logged in!', category='success')
                 login_user(user, remember=True)
-                return redirect(url_for('views.home'))
+                return redirect(url_for('views.dashboard'))
                 # send to first page of grading process
             else:
                 flash('Incorrect password', category='error')
@@ -30,11 +30,10 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return render_template('logout.html')
+    return render_template('logout.html', user=current_user)
 
 
 @auth.route('/signup', methods=['GET', 'POST'])
-@login_required
 def singup():
     if request.method == 'POST':
         user_name = request.form.get('uName')
@@ -58,7 +57,7 @@ def singup():
             flash('Account successfully created!', category='success')
             return redirect(url_for('views.home'))
 
-    return render_template('signup.html')
+    return render_template('signup.html', user=current_user)
 
 
 

@@ -5,6 +5,7 @@
     margin-right: auto;
     opacity: 90%;
 }
+
 .sign-up {
     text-align: center;
     margin-top: 50px;
@@ -19,16 +20,26 @@
 
 .btn {
     display: block;
-    margin-left:auto;
+    margin-left: auto;
     margin-right: auto;
 }
+
 .logout-confirm {
     text-align: center;
     margin-top: 50px;
     color: midnightblue;
 }
+
 .welcome-home {
     text-align: center;
     margin-top: 50px;
     color: midnightblue;
+}
+
+.testing-menu-item{
+    color: white;
+}
+
+.testing-menu-item:hover{
+    color: dimgrey;
 }
