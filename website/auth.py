@@ -17,7 +17,7 @@ def login():
             if check_password_hash(user.password, password):
                 flash('Logged in!', category='success')
                 login_user(user, remember=True)
-                return redirect(url_for('views.dashboard'))
+                return redirect(url_for('views.dashboard', user=current_user))
                 # send to first page of grading process
             else:
                 flash('Incorrect password', category='error')

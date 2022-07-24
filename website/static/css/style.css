@@ -43,3 +43,9 @@
 .testing-menu-item:hover{
     color: dimgrey;
 }
+
+.testing-titles{
+    text-align: center;
+    margin-top: 50px;
+    color: midnightblue;
+}

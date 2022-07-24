@@ -14,3 +14,8 @@ def home():
 @login_required
 def dashboard():
     return render_template('dashboard.html', user=current_user)
+
+@views.route('/cosmetics')
+@login_required
+def cosmetics():
+    return render_template('cosmetics.html', user=current_user)
