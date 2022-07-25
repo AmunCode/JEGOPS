@@ -1,0 +1,16 @@
+{% extends 'testing_base.html' %}
+{% block title %} Missing Components {% endblock %}
+{% block content %}
+<form method="POST">
+    <h3 class="sign-up">Missing Components</h3>
+    <div class="form-group">
+        <form>
+            <input type="radio" class="form-control" id="missing-components1" name="missing-components-yes" value="Yes">
+            <label for="missing-components1">Yes</label><br>
+            <input type="radio" class="form-control" id="missing-components2" name="missing-components-no" value="No">
+            <label for="missing-components2">No</label><br>
+        </form>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
