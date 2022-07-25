@@ -16,9 +16,9 @@ def get_device_info(imei):
 
     # print(device_info)
 
-    print(device_info['BatteryHealthPercentage'])
+    return device_info
 
 
-get_device_info('353220104534844')
+# get_device_info('356442107162533')
 
 

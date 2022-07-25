@@ -48,15 +48,24 @@
     text-align: center;
     margin-top: 50px;
     color: midnightblue;
+    font-size: 36px;
 }
 
+.cosmetic-form-titles{
+    text-align: left;
+    margin-top: 5px;
+    color: midnightblue;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
 /* Style the cosmetic testing form */
 #regForm {
   background-color: #ffffff;
   margin: 100px auto;
   padding: 40px;
-  width: 70%;
-  min-width: 300px;
+  width: 50%;
+  min-width: 200px;
 }
 
 /* Style the input fields */
@@ -65,7 +74,7 @@ input {
   width: 100%;
   font-size: 17px;
   font-family: Raleway;
-  border: 3px solid #aaaaaa;
+  border: 2px solid #aaaaaa;
 }
 
 /* Mark input boxes that gets an error on validation: */
