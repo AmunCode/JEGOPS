@@ -17,10 +17,22 @@ def home():
 def dashboard():
     if request.method == 'POST':
         imei = request.form.get('imei')
+        scratches = request.form.get('scratches')
+        dents = request.form.get('dents')
+        lcd_discoloration = request.form.get('lcd-discoloration')
+        components_missing = request.form.get('missing-components')
+        cracked = request.form.get('cracks')
+        markings = request.form.get('markings')
         data = get_device_info(imei)
+
+        # Tracer lines
         print(data['BatteryHealthPercentage'])
+        print(f"scratches: {scratches}, dents {dents}, lcd {lcd_discoloration}, comps {components_missing},"
+              f" cracked {cracked}, markings {markings}")
+
         if data:
             return render_template('cosmetics.html', user=current_user, data=data)
+
     return render_template('dashboard.html', user=current_user)
 
 

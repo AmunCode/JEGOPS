@@ -7,7 +7,8 @@
 <form id="regForm" method="POST">
 <p class="cosmetic-form-titles">Phone: {{data['Model']}} {{data['Memory']}} {{data['Color']}} </p>
   <p class="cosmetic-form-titles">Tested by: {{data['TesterName']}}</p>
-<div class="tab">
+
+  <div class="tab">
   <label for="imei">IMEI:</label>
   <p><input class="form-control" value={{data['IMEI']}} id="imei" name="imei" readonly oninput="this.className = ''"></p>
   <label for="battery">Battery:</label>
@@ -16,30 +17,49 @@
 
 <div class="tab">Scratches:
   <!-- make drop box -->
-  <p><input class="form-control" placeholder="Any scratches..." oninput="this.className = ''"></p>
+<!--  <p><input class="form-control" placeholder="Any scratches..." oninput="this.className = ''"></p>-->
+  <select  id="scratches" name="scratches" oninput="this.className = ''">
+      <option>Any scratches...</option>
+      <option>Very few</option>
+      <option>Some</option>
+      <option>Many/Deep</option>
+    </select>
 </div>
 
 <div class="tab">Dents:
-  <p><input class="form-control" placeholder="Any dents..." oninput="this.className = ''"></p>
+  <select  id="dents" name="dents" oninput="this.className = ''">
+      <option>None</option>
+      <option>Small</option>
+      <option>Large</option>
+  </select>
 </div>
 
 <div class="tab">LCD:
-  <!-- LCD boolean -->
-  <p><input class="form-control" placeholder="Any LCD discoloration..." oninput="this.className = ''"></p>
+    <input type="radio" id="lcd-discoloration1" name="lcd-discoloration" value=True oninput=" this.className = ''">
+    <label for="lcd-discoloration1">Yes</label>
+    <input type="radio" id="lcd-discoloration2" name="lcd-discoloration" value=False oninput=" this.className = ''">
+    <label for="lcd-discoloration2">No</label>
 </div>
 
 <div class="tab">Components:
-   <!-- Com boolean -->
-  <p><input class="form-control" placeholder="Any components missing..." oninput="this.className = ''"></p>
+  <input type="radio"  id="missing-components1" name="missing-components" value=True oninput=" this.className = ''">
+  <label for="missing-components1">Yes</label><br>
+  <input type="radio" id="missing-components2" name="missing-components" value=False oninput=" this.className = ''">
+  <label for="missing-components2">No</label><br>
 </div>
 
 <div class="tab">Cracks:
-  <p><input class="form-control" placeholder="Any cracks..." oninput="this.className = ''"></p>
-
+  <input type="radio" class="form-control" id="cracks1" name="cracks" value=True oninput=" this.className = ''">
+  <label for="cracks1">Yes</label><br>
+  <input type="radio" class="form-control" id="cracks2" name="cracks" value=False oninput=" this.className = ''">
+  <label for="cracks2">No</label><br>
 </div>
 
 <div class="tab">Markings:
-  <p><input class="form-control" placeholder="Any markings..." oninput="this.className = ''"></p>
+  <input type="radio" class="form-control" id="markings1" name="markings" value=True oninput=" this.className = ''">
+  <label for="markings1">Yes</label><br>
+  <input type="radio" class="form-control" id="markings2" name="markings" value=False oninput=" this.className = ''">
+  <label for="markings2">No</label><br>
 </div>
 
 <div style="overflow:auto;">

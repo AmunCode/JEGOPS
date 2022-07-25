@@ -3,7 +3,9 @@
 {% block content %}
     <h3 class="welcome-home"> You are logged into JEGOPS v1.0</h3>
     <form class="imei-scan" method="POST">
-        <input type="text" placeholder="scan imei..." name="imei">
-        <input type="submit">
+        <div class="form-group">
+            <input class="form-control" type="text" autocomplete="off" placeholder="scan imei..." name="imei">
+            <input type="submit">
+        </div>
     </form>
 {% endblock %}
