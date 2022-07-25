@@ -1,0 +1,12 @@
+{% extends 'testing_base.html' %}
+{% block title %} Scratches {% endblock %}
+{% block content %}
+<form method="POST">
+    <h3 class="sign-up">IMEI and Battery</h3>
+    <div class="form-group">
+        <label for="scratches">IMEI Number</label>
+        <input type="text" class="form-control" id="scratches" name="scratches" placeholder="List any scratches">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
