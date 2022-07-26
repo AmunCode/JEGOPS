@@ -1,5 +1,5 @@
 # file to manage views
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, session
 from flask_login import login_required, current_user
 from api_calls import get_device_info
 from phone import Phone
@@ -17,26 +17,19 @@ def home():
 @login_required
 def dashboard():
     if request.method == 'POST':
-        imei = request.form.get('imei')
-        # scratches = request.form.get('scratches')
-        # dents = request.form.get('dents')
-        # lcd_discoloration = request.form.get('lcd-discoloration')
-        # components_missing = request.form.get('missing-components')
-        # cracked = request.form.get('cracks')
-        # markings = request.form.get('markings')
-        data = get_device_info(imei)
-        # cosmetic_data = request.form.to_dict()
+        IMEI = request.form.get('imei')
+        session['current_device'] = get_device_info(IMEI)
+        # print(data)
+        if session['current_device']:
+            # return redirect(url_for('views.cosmetics', user=current_user))
+            return redirect(url_for('views.cosmetics', user=current_user, data=session['current_device']))
+
+
         # Tracer lines
-        print(data['BatteryHealthPercentage'])
-        # print(f"scratches: {scratches}, dents {dents}, lcd {lcd_discoloration}, comps {components_missing},"
-        #       f" cracked {cracked}, markings {markings}")
+
         # testing_data = cosmetic_data.update(data)
         # print(f"cosmetic data: {cosmetic_data}")
         # print(f"full data: {testing_data}")
-
-        if data:
-            return redirect(url_for('views.cosmetics', user=current_user, data=data))
-
     return render_template('dashboard.html', user=current_user)
 
 
@@ -46,6 +39,19 @@ def cosmetics():
     if request.method == 'POST':
         imei = request.form.get('imei')
         battery = request.form.get('battery')
+        scratches = request.form.get('scratches')
+        dents = request.form.get('dents')
+        lcd_discoloration = request.form.get('lcd-discoloration')
+        components_missing = request.form.get('missing-components')
+        cracked = request.form.get('cracks')
+        markings = request.form.get('markings')
+        cosmetic_data = request.form.to_dict()
+        # print(data['BatteryHealthPercentage'])
+        print(f"scratches: {scratches}, dents {dents}, lcd {lcd_discoloration}, comps {components_missing},"
+              f" cracked {cracked}, markings {markings}")
+        print(cosmetic_data)
         print(imei, battery)
+        session.clear()
+        return redirect(url_for('views.dashboard', user=current_user))
 
-    return render_template('cosmetics.html', user=current_user)
+    return render_template('cosmetics.html', user=current_user, data=session['current_device'])

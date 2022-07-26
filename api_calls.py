@@ -11,12 +11,13 @@ def get_device_info(imei):
     }
 
     response = requests.request("POST", url, data=payload)
-
-    device_info = response.json()
+    print(response.ok)
+    if response.ok:
+        device_info = response.json()
 
     # print(device_info)
 
-    return device_info
+        return device_info
 
 
 # get_device_info('356442107162533')
