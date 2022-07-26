@@ -1,5 +1,5 @@
 # file to manage views
-from flask import Blueprint, render_template, request, redirect, url_for, session
+from flask import Blueprint, render_template, request, redirect, url_for, session, flash
 from flask_login import login_required, current_user
 from api_calls import get_device_info
 from phone import Phone
@@ -23,7 +23,8 @@ def dashboard():
         if session['current_device']:
             # return redirect(url_for('views.cosmetics', user=current_user))
             return redirect(url_for('views.cosmetics', user=current_user, data=session['current_device']))
-
+        else:
+            flash(f'IMEI {IMEI} not found!', category='error')
 
         # Tracer lines
 
