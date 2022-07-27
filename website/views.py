@@ -3,6 +3,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, sessio
 from flask_login import login_required, current_user
 from api_calls import get_device_info
 from phone import Phone
+from grade import grade
 
 views = Blueprint('views', __name__)
 
@@ -38,20 +39,39 @@ def dashboard():
 @login_required
 def cosmetics():
     if request.method == 'POST':
-        imei = request.form.get('imei')
-        battery = request.form.get('battery')
-        scratches = request.form.get('scratches')
-        dents = request.form.get('dents')
-        lcd_discoloration = request.form.get('lcd-discoloration')
-        components_missing = request.form.get('missing-components')
-        cracked = request.form.get('cracks')
-        markings = request.form.get('markings')
-        cosmetic_data = request.form.to_dict()
+        device_cosmetics = {}
+        # imei = request.form.get('imei')
+        # battery = request.form.get('battery')
+        device_cosmetics['scratches'] = request.form.get('scratches')
+        device_cosmetics['dents'] = request.form.get('dents')
+        device_cosmetics['lcd_discoloration'] = request.form.get('lcd-discoloration')
+        device_cosmetics['components_missing'] = request.form.get('missing-components')
+        device_cosmetics['cracked'] = request.form.get('cracks')
+        device_cosmetics['markings'] = request.form.get('markings')
+        # device_cosmetics['cosmetic_data'] = request.form.to_dict()
         # print(data['BatteryHealthPercentage'])
-        print(f"scratches: {scratches}, dents {dents}, lcd {lcd_discoloration}, comps {components_missing},"
-              f" cracked {cracked}, markings {markings}")
-        print(cosmetic_data)
-        print(imei, battery)
+
+        print(device_cosmetics)
+        print(session['current_device'])
+        # master_dict = device_cosmetics.update(session['current_device'])
+        # merge cosmetic dictionary with functionality report temp stored in
+        master_dict = {**device_cosmetics, **session['current_device']}
+        print(master_dict)
+
+        # Build a phone object
+        test_phone = Phone(imei=session['current_device']['IMEI'],
+                           scratches=device_cosmetics['scratches'],
+                           dents=device_cosmetics['dents'],
+                           lcd_discoloration=bool(device_cosmetics['lcd_discoloration']),
+                           missing_parts=bool(device_cosmetics['components_missing']),
+                           cracks=(device_cosmetics['cracked']),
+                           markings=bool(device_cosmetics['markings']),
+                           battery_life=int(session['current_device']['BatteryHealthPercentage'])
+                           )
+
+        grade(test_phone)
+        print(test_phone.grade)
+
         session.clear()
         return redirect(url_for('views.dashboard', user=current_user))
 

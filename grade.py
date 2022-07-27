@@ -6,7 +6,7 @@ def grade(phone):
         phone.grade = 'D'
         return
     elif phone.dent_condition:                              # options: None, shallow, deep
-        if phone.dent_condition == 'shallow':
+        if phone.dent_condition == 'Small':
             phone.grade = 'C'
         else:
             phone.grade = 'D'
@@ -18,9 +18,9 @@ def grade(phone):
             phone.grade = 'F'
         return
     elif phone.scratch_condition:
-        if phone.scratch_condition == 'negligible':
+        if phone.scratch_condition == 'Very few':
             phone.grade = 'A'
-        elif phone.scratch_condition == 'small':
+        elif phone.scratch_condition == 'Some':
             phone.grade = 'B'
         else:
             if phone.battery_condition >= 79:
