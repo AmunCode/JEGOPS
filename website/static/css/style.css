@@ -73,7 +73,7 @@ input {
   padding: 15px;
   width: 100%;
   font-size: 17px;
-  font-family: Raleway;
+    font-family: Raleway, serif;
   border: 2px solid #aaaaaa;
 }
 
@@ -84,7 +84,8 @@ input.invalid {
 
 /* Hide all steps by default: */
 .tab {
-  display: none;
+    display: none;
+    margin-top: 20px;
 }
 
 /* Make circles that indicate the steps of the form: */
@@ -107,4 +108,18 @@ input.invalid {
 /* Mark the steps that are finished and valid: */
 .step.finish {
   background-color: #04AA6D;
+}
+.cos-options{
+    display: block;
+    margin-top: 20px;
+}
+
+fieldset{
+    border-style: ridge;
+    border-width: thin;
+    margin-bottom: 10px;
+}
+
+.dent-select{
+    margin-top: 20px;
 }

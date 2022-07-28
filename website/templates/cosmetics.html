@@ -13,53 +13,95 @@
   <p><input class="form-control" value={{data['IMEI']}} id="imei" name="imei" readonly oninput="this.className = ''"></p>
   <label for="battery">Battery:</label>
   <p><input class="form-control" value={{data['BatteryHealthPercentage']}} id="battery" name="battery" readonly oninput="this.className = ''"></p>
-</div>
+  </div>
 
-<div class="tab">Scratches:
-  <!-- make drop box -->
-<!--  <p><input class="form-control" placeholder="Any scratches..." oninput="this.className = ''"></p>-->
-  <select  id="scratches" name="scratches" oninput="this.className = ''">
-      <option>Any scratches...</option>
-      <option>Very few</option>
-      <option>Some</option>
-      <option>Many/Deep</option>
-    </select>
-</div>
+  <div class="tab">Scratches:
+  <br/>
+    <fieldset>
+    <div class="cos-options">
+      <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="light" name="scratches"
+                                                                 value="light" oninput="this.className = ''"></p>
+      <p style="display: inline-block; margin-left: 10px"><label for="light">light scratches</label></p>
+    </div>
+    <div class="cos-options">
+      <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="medium" name="scratches"
+                                                                 value="medium" ></p>
+      <p style="display: inline-block; margin-left: 10px"><label for="medium">Moderate</label></p>
+    </div>
+    <div class="cos-options">
+      <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="Heavy" name="scratches"
+                                                                 value="Heavy/Deep" oninput="this.className = ''"></p>
+      <p style="display: inline-block; margin-left: 10px"><label for="Heavy">Heavy/Deep</label></p>
+    </div>
+    </fieldset>
+  </div>
 
-<div class="tab">Dents:
-  <select  id="dents" name="dents" oninput="this.className = ''">
-      <option>None</option>
-      <option>Small</option>
-      <option>Large</option>
+<div class="tab form-select-lg mb-3">Dents:
+  <select class="dent-select " id="dents" name="dents" oninput="this.className = ''">
+      <option  value="None">None   </option>
+      <option  value="Small">Small </option>
+      <option  value="Large">Large </option>
   </select>
 </div>
 
 <div class="tab">LCD:
-    <input type="radio" id="lcd-discoloration1" name="lcd-discoloration" value=True oninput=" this.className = ''">
-    <label for="lcd-discoloration1">Yes</label>
-    <input type="radio" id="lcd-discoloration2" name="lcd-discoloration" value=False oninput=" this.className = ''">
-    <label for="lcd-discoloration2">No</label>
+    <fieldset>
+    <div class="cos-options">
+      <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="lcd-discoloration1" name="lcd-discoloration"
+                                                                 value=True oninput="this.className = ''"></p>
+      <p style="display: inline-block; margin-left: 10px"><label for="lcd-discoloration1">Yes</label></p>
+    </div>
+    <div class="cos-options">
+      <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="lcd-discoloration2" name="lcd-discoloration"
+                                                                 value=False ></p>
+      <p style="display: inline-block; margin-left: 10px"><label for="lcd-discoloration2">No</label></p>
+    </div>
+    </fieldset>
 </div>
 
 <div class="tab">Components:
-  <input type="radio"  id="missing-components1" name="missing-components" value=True oninput=" this.className = ''">
-  <label for="missing-components1">Yes</label><br>
-  <input type="radio" id="missing-components2" name="missing-components" value=False oninput=" this.className = ''">
-  <label for="missing-components2">No</label><br>
+    <fieldset>
+    <div class="cos-options">
+      <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="missing-components1" name="missing-components"
+                                                                 value=True oninput="this.className = ''"></p>
+      <p style="display: inline-block; margin-left: 10px"><label for="missing-components1">Yes</label></p>
+    </div>
+    <div class="cos-options">
+      <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="missing-components2" name="missing-components"
+                                                                 value=False ></p>
+      <p style="display: inline-block; margin-left: 10px"><label for="missing-components2">No</label></p>
+    </div>
+    </fieldset>
 </div>
 
 <div class="tab">Cracks:
-  <input type="radio" class="form-control" id="cracks1" name="cracks" value=True oninput=" this.className = ''">
-  <label for="cracks1">Yes</label><br>
-  <input type="radio" class="form-control" id="cracks2" name="cracks" value=False oninput=" this.className = ''">
-  <label for="cracks2">No</label><br>
+  <fieldset>
+    <div class="cos-options">
+      <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="cracks1" name="cracks"
+                                                                 value=True oninput="this.className = ''"></p>
+      <p style="display: inline-block; margin-left: 10px"><label for="cracks1">Yes</label></p>
+    </div>
+    <div class="cos-options">
+      <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="cracks2" name="cracks"
+                                                                 value=False ></p>
+      <p style="display: inline-block; margin-left: 10px"><label for="cracks2">No</label></p>
+    </div>
+  </fieldset>
 </div>
 
 <div class="tab">Markings:
-  <input type="radio" class="form-control" id="markings1" name="markings" value=True oninput=" this.className = ''">
-  <label for="markings1">Yes</label><br>
-  <input type="radio" class="form-control" id="markings2" name="markings" value=False oninput=" this.className = ''">
-  <label for="markings2">No</label><br>
+  <fieldset>
+    <div class="cos-options">
+      <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="markings1" name="markings"
+                                                                 value=True oninput="this.className = ''"></p>
+      <p style="display: inline-block; margin-left: 10px"><label for="markings1">Yes</label></p>
+    </div>
+    <div class="cos-options">
+      <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="markings2" name="markings"
+                                                                 value=False ></p>
+      <p style="display: inline-block; margin-left: 10px"><label for="markings2">No</label></p>
+    </div>
+  </fieldset>
 </div>
 
 <div style="overflow:auto;">

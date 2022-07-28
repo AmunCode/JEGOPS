@@ -5,6 +5,7 @@ from api_calls import get_device_info
 from phone import Phone
 from grade import grade
 
+
 views = Blueprint('views', __name__)
 
 
@@ -41,7 +42,11 @@ def cosmetics():
     if request.method == 'POST':
         device_cosmetics = {}
         # imei = request.form.get('imei')
-        # battery = request.form.get('battery')
+        try:
+            battery = int(request.form.get('battery'))
+        except ValueError:
+            session['current_device']['BatteryHealthPercentage'] = '0'
+
         device_cosmetics['scratches'] = request.form.get('scratches')
         device_cosmetics['dents'] = request.form.get('dents')
         device_cosmetics['lcd_discoloration'] = request.form.get('lcd-discoloration')
