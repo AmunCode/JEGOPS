@@ -49,15 +49,31 @@ def cosmetics():
 
         device_cosmetics['scratches'] = request.form.get('scratches')
         device_cosmetics['dents'] = request.form.get('dents')
-        device_cosmetics['lcd_discoloration'] = request.form.get('lcd-discoloration')
-        device_cosmetics['components_missing'] = request.form.get('missing-components')
-        device_cosmetics['cracked'] = request.form.get('cracks')
-        device_cosmetics['markings'] = request.form.get('markings')
+
+        if request.form.get('lcd-discoloration') == 'True':
+            device_cosmetics['lcd_discoloration'] = True
+        else:
+            device_cosmetics['lcd_discoloration'] = False
+
+        if request.form.get('missing-components') == 'True':
+            device_cosmetics['components_missing'] = True
+        else:
+            device_cosmetics['components_missing'] = False
+
+        if request.form.get('cracks') == 'True':
+            device_cosmetics['cracked'] = True
+        else:
+            device_cosmetics['cracked'] = False
+
+        if request.form.get('markings') == 'True':
+            device_cosmetics['markings'] = True
+        else:
+            device_cosmetics['markings'] = False
         # device_cosmetics['cosmetic_data'] = request.form.to_dict()
         # print(data['BatteryHealthPercentage'])
 
         print(device_cosmetics)
-        print(session['current_device'])
+        print(device_cosmetics['lcd_discoloration'])
         # master_dict = device_cosmetics.update(session['current_device'])
         # merge cosmetic dictionary with functionality report temp stored in
         master_dict = {**device_cosmetics, **session['current_device']}
@@ -73,6 +89,8 @@ def cosmetics():
                            markings=bool(device_cosmetics['markings']),
                            battery_life=int(session['current_device']['BatteryHealthPercentage'])
                            )
+
+        print(type(test_phone.lcd_discolored))
 
         grade(test_phone)
         print(test_phone.grade)
