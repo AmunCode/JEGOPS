@@ -47,25 +47,39 @@
 .testing-titles{
     text-align: center;
     margin-top: 50px;
+    margin-bottom: 50px;
     color: midnightblue;
     font-size: 36px;
+}
+
+.current-phone-data-area{
+    border-radius: 10px;
+    background-color: #FAF4B7;
+    border: 1px solid #4C3A51;
+    margin-top: 10px;
+    width: 40%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .cosmetic-form-titles{
     text-align: left;
     margin-top: 5px;
     color: midnightblue;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: bold;
     margin-bottom: 5px;
 }
+
+
+
 /* Style the cosmetic testing form */
 #regForm {
   background-color: #ffffff;
   margin: 100px auto;
   padding: 40px;
-  width: 50%;
+  width: 60%;
   min-width: 200px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 /* Style the input fields */

@@ -3,11 +3,15 @@
 {% block sub_title %}
 {% endblock %}
 {% block content %}
-<h3 class="testing-titles">Cosmetic grading page one: IMEI and Battery</h3>
-<form id="regForm" method="POST">
-<p class="cosmetic-form-titles">Phone: {{data['Model']}} {{data['Memory']}} {{data['Color']}} </p>
-  <p class="cosmetic-form-titles">Tested by: {{data['TesterName']}}</p>
+<h3 class="testing-titles">Cosmetic Grading</h3>
 
+<div class="current-phone-data-area">
+  <p class="cosmetic-form-titles">Phone: {{data['Model']}} {{data['Memory']}} {{data['Color']}} </p>
+  <p class="cosmetic-form-titles">Tested by: {{data['TesterName']}}</p>
+  <p class="cosmetic-form-titles">Tested on: {{data['StartTime']}}</p>
+</div>
+
+<form id="regForm" method="POST">
   <div class="tab">
   <label for="imei">IMEI:</label>
   <p><input class="form-control" value={{data['IMEI']}} id="imei" name="imei" readonly oninput="this.className = ''"></p>
