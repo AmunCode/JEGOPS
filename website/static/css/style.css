@@ -54,7 +54,7 @@
 
 .current-phone-data-area{
     border-radius: 10px;
-    background-color: #FAF4B7;
+    background-color: #c7ccbc;
     border: 1px solid #4C3A51;
     margin-top: 10px;
     width: 40%;
@@ -74,7 +74,8 @@
 
 /* Style the cosmetic testing form */
 #regForm {
-  background-color: #ffffff;
+    border-radius: 10px;
+  background-color: #d0d6bf;
   margin: 100px auto;
   padding: 40px;
   width: 60%;

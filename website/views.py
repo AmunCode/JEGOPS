@@ -21,6 +21,9 @@ def dashboard():
     if request.method == 'POST':
         IMEI = request.form.get('imei')
         session['current_device'] = get_device_info(IMEI)
+        print(session['current_device']['Grade'])
+        session['current_device']['Grade'] = 'M'
+        print(session['current_device']['Grade'])
         # print(data)
         if session['current_device']:
             # return redirect(url_for('views.cosmetics', user=current_user))
@@ -72,12 +75,13 @@ def cosmetics():
         # device_cosmetics['cosmetic_data'] = request.form.to_dict()
         # print(data['BatteryHealthPercentage'])
 
-        print(device_cosmetics)
-        print(device_cosmetics['lcd_discoloration'])
+        # print(device_cosmetics)
+        # print(device_cosmetics['lcd_discoloration'])
         # master_dict = device_cosmetics.update(session['current_device'])
+
         # merge cosmetic dictionary with functionality report temp stored in
         master_dict = {**device_cosmetics, **session['current_device']}
-        print(master_dict)
+
 
         # Build a phone object
         test_phone = Phone(imei=session['current_device']['IMEI'],
@@ -90,12 +94,27 @@ def cosmetics():
                            battery_life=int(session['current_device']['BatteryHealthPercentage'])
                            )
 
-        print(type(test_phone.lcd_discolored))
-
         grade(test_phone)
-        print(test_phone.grade)
+        master_dict['Grade'] = test_phone.grade
+        # print(master_dict)
 
-        session.clear()
-        return redirect(url_for('views.dashboard', user=current_user))
+        # print(type(test_phone.lcd_discolored))
+        print(session['current_device']['Grade'])
+
+        print(type(test_phone.grade))
+        print(type(session['current_device']['Grade']))
+
+        session['current_device']['Grade'] = test_phone.grade
+
+        print(session['current_device']['Grade'])
+        print(session['current_device'])
+
+        return render_template('result.html', user=current_user, data=master_dict['Grade'])
 
     return render_template('cosmetics.html', user=current_user, data=session['current_device'])
+
+
+@views.route('/result')
+@login_required
+def result():
+    return render_template('result.html', user=current_user)
