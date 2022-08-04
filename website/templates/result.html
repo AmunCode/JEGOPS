@@ -3,5 +3,17 @@
 {% block sub_title %}
 {% endblock %}
 {% block content %}
-<p>Result Page: Grade is {{data}}</p>
+<div class="current-phone-data-area">
+  <p class="cosmetic-form-titles">Phone: {{data['Model']}} {{data['Memory']}} {{data['Color']}} </p>
+  <p class="cosmetic-form-titles">Tested by: {{data['TesterName']}}</p>
+  <p class="cosmetic-form-titles">Tested on: {{data['StartTime']}}</p>
+</div>
+<div class="grading-result">
+    <p>{{data['IMEI']}}: Grade is {{data['Grade']}}</p>
+</div>
+<div style="overflow:auto;">
+  <div style="float:right;">
+    <button type="button" onclick="location.href='/dashboard'">Next Device </button>
+  </div>
+</div>
 {% endblock %}

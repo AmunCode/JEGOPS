@@ -2,8 +2,10 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
 from flask_login import login_required, current_user
 from api_calls import get_device_info
-from phone import Phone
+from phone import Phone, dict2obj
 from grade import grade
+from . import db
+from .models import Result
 
 
 views = Blueprint('views', __name__)
@@ -95,21 +97,21 @@ def cosmetics():
                            )
 
         grade(test_phone)
+
         master_dict['Grade'] = test_phone.grade
         # print(master_dict)
 
         # print(type(test_phone.lcd_discolored))
         print(session['current_device']['Grade'])
-
-        print(type(test_phone.grade))
-        print(type(session['current_device']['Grade']))
-
+        print(master_dict)
+        test1 = dict2obj(master_dict)
+        print(test1)
+        print(test1.scratches)
+        new_phone = Result(Scratches=test1.scratches,Dents=test1.dents)
+        db.session.add(new_phone)
+        db.session.commit()
         session['current_device']['Grade'] = test_phone.grade
-
-        print(session['current_device']['Grade'])
-        print(session['current_device'])
-
-        return render_template('result.html', user=current_user, data=master_dict['Grade'])
+        return render_template('result.html', user=current_user, data=session['current_device'])
 
     return render_template('cosmetics.html', user=current_user, data=session['current_device'])
 

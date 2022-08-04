@@ -12,7 +12,7 @@ DB_NAME = 'database.db'
 def create_app():
     from .views import views
     from .auth import auth
-    from .models import User
+    from .models import User, Result
 
     app = Flask(__name__)
     app.config['SECRET__KEY'] = 'dummyDevKey'
