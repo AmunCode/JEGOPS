@@ -1,6 +1,8 @@
 # file to manage views
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
 from flask_login import login_required, current_user
+
+import phone
 from api_calls import get_device_info
 from phone import Phone, dict2obj
 from grade import grade
@@ -107,9 +109,11 @@ def cosmetics():
         test1 = dict2obj(master_dict)
         print(test1)
         print(test1.scratches)
-        new_phone = Result(Scratches=test1.scratches,Dents=test1.dents)
+        # new_phone = Result(Scratches=test1.scratches,Dents=test1.dents)
+        new_phone = phone.sql_prep(master_dict)
         db.session.add(new_phone)
         db.session.commit()
+        flash('Phone data successfully stored', category='success')
         session['current_device']['Grade'] = test_phone.grade
         return render_template('result.html', user=current_user, data=session['current_device'])
 
