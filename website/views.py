@@ -98,6 +98,9 @@ def cosmetics():
                            battery_life=int(session['current_device']['BatteryHealthPercentage'])
                            )
 
+        print(test_phone.cosmetic_report())
+        print(type(test_phone.dent_condition))
+        print(test_phone.dent_condition)
         grade(test_phone)
 
         master_dict['Grade'] = test_phone.grade
@@ -106,9 +109,8 @@ def cosmetics():
         # print(type(test_phone.lcd_discolored))
         print(session['current_device']['Grade'])
         print(master_dict)
-        test1 = dict2obj(master_dict)
-        print(test1)
-        print(test1.scratches)
+        # test1 = dict2obj(master_dict)
+        # print(test1)
         # new_phone = Result(Scratches=test1.scratches,Dents=test1.dents)
         new_phone = phone.sql_prep(master_dict)
         db.session.add(new_phone)

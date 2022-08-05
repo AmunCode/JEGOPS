@@ -6,7 +6,7 @@ app = create_app()
 
 if __name__ == '__main__':
     app.secret_key = 'super secret key'
-    app.run(debug=True)
+    app.run(host="192.168.1.159", debug=True)
 
 
 # f_phone = Phone('ftest', markings=True, missing_parts=False)

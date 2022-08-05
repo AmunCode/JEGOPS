@@ -5,7 +5,7 @@ def grade(phone):
     elif phone.missing_parts or phone.lcd_discolored:       # options: True or False
         phone.grade = 'D'
         return
-    elif phone.dent_condition:                              # options: None, shallow, deep
+    elif phone.dent_condition != 'None':
         if phone.dent_condition == 'Small':
             phone.grade = 'C'
         else:
@@ -18,10 +18,11 @@ def grade(phone):
             phone.grade = 'F'
         return
     elif phone.scratch_condition:
-        if phone.scratch_condition == 'Very few':
+        if phone.scratch_condition == 'light':
             phone.grade = 'A'
-        elif phone.scratch_condition == 'Some':
+        elif phone.scratch_condition == 'medium':
             phone.grade = 'B'
+            return
         else:
             if phone.battery_condition >= 79:
                 phone.grade = 'C+'
@@ -39,5 +40,6 @@ def grade(phone):
             phone.grade = 'C'
         else:
             phone.grade = 'D'
+
 
 
