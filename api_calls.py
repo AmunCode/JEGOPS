@@ -18,7 +18,3 @@ def get_device_info(imei):
     else:
         return False
 
-
-# print(get_device_info('354169110140329'))
-
-

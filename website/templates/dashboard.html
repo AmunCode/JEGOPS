@@ -4,9 +4,9 @@
     <h3 class="welcome-home"> You are logged into JEGOPS v1.0</h3>
     <form class="imei-scan" method="POST">
         <div class="form-group">
-            <input class="form-control" type="text" autocomplete="off" placeholder="scan imei..." name="imei">
+            <input class="input100 ng-dirty ng-valid ng-pristine has-val ng-touched form-control" type="text" minlength="8" required autocomplete="off" placeholder="scan imei..." name="imei">
             <br>
-            <input type="submit">
+            <input class="login100-form-btn" type="submit">
         </div>
     </form>
 {% endblock %}
