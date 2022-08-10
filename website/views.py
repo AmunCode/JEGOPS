@@ -115,6 +115,10 @@ def cosmetics():
         new_phone = phone.sql_prep(master_dict)
         db.session.add(new_phone)
         db.session.commit()
+        test = Result.query.filter_by(IMEI=master_dict['IMEI']).first()
+        print(test.id)
+        print(test.CosmeticTestTime)
+
         flash('Phone data successfully stored', category='success')
         session['current_device']['Grade'] = test_phone.grade
         return render_template('result.html', user=current_user, data=session['current_device'])
