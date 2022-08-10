@@ -104,6 +104,7 @@ def dict2obj(dict1):
 
 def sql_prep(test_result: dict):
     new_phone_entry = models.Result(
+        Cos_tester_name=test_result['cos_tester'],
         Scratches=test_result['scratches'],
         Dents=test_result['dents'],
         LcdDiscoloration=test_result['lcd_discoloration'],

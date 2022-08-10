@@ -12,6 +12,21 @@
     color: midnightblue;
 }
 
+.sign-up-form {
+    color: midnightblue;
+    padding: 15px;
+    margin: auto;
+    width: 400px;
+}
+
+.form-group-admin {
+    color: midnightblue;
+    text-align: center;
+    padding: 5px;
+    margin: auto;
+    width: 250px;
+}
+
 .form-group {
     padding: 5px;
     margin: auto;
@@ -33,7 +48,16 @@
     display: inline;
     color: white;
 }
+.user-name-login{
+    color: white;
+    float: right;
+    margin-bottom: 0;
+    width: 400%;
+}
 
+#user-welcome{
+    margin: 0 0 0 90%;
+}
 
 .btn {
     display: block;
@@ -71,9 +95,10 @@
 
 .current-phone-data-area{
     border-radius: 10px;
-    background-color: #c7ccbc;
+    background-color: #c1cede;
     border: 1px solid #4C3A51;
-    margin-top: 10px;
+    padding: 20px;
+    margin-top: 30px;
     width: 40%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
@@ -132,7 +157,7 @@
 /* Style the cosmetic testing form */
 #regForm {
     border-radius: 10px;
-  background-color: #d0d6bf;
+  background-color: #c1c9d4;
   margin: 100px auto;
   padding: 40px;
   width: 60%;
@@ -179,7 +204,7 @@ input.invalid {
 
 /* Mark the steps that are finished and valid: */
 .step.finish {
-  background-color: #04AA6D;
+  background-color: #142e52;
 }
 
 .cos-options{

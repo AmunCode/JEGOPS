@@ -6,13 +6,15 @@ from flask_login import UserMixin
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
-    user_name = db.Column(db.String(50), unique=True)
-    password = db.Column(db.String(200))
+    user_name = db.Column(db.String(50), unique=True, nullable=False)
+    password = db.Column(db.String(200), nullable=False)
+    is_admin = db.Column(db.Boolean())
 
 
 class Result(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     CosmeticTestTime = db.Column(db.DateTime(timezone=True), default=func.now())
+    Cos_tester_name = db.Column(db.String(), db.ForeignKey('user.user_name'))
     Scratches = db.Column(db.String(20))
     Dents = db.Column(db.String(10))
     LcdDiscoloration = db.Column(db.Boolean())

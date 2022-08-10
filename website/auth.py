@@ -39,6 +39,12 @@ def singup():
         user_name = request.form.get('uName')
         password = request.form.get('password')
         confirm_password = request.form.get('confirm_password')
+        admin_checkbox = request.form.get('is_admin')
+
+        if admin_checkbox:
+            is_admin = True
+        else:
+            is_admin = False
 
         user = User.query.filter_by(user_name=user_name).first()
         if user:
@@ -51,11 +57,11 @@ def singup():
             flash('passwords do not match!', category='error')
         else:
             # all good, add to DB
-            new_user = User(user_name=user_name, password=generate_password_hash(password, method='sha512'))
+            new_user = User(user_name=user_name, password=generate_password_hash(password, method='sha512'), is_admin=is_admin)
             db.session.add(new_user)
             db.session.commit()
             flash('Account successfully created!', category='success')
-            return redirect(url_for('views.home'))
+            return redirect(url_for('views.login'))
 
     return render_template('signup.html', user=current_user)
 

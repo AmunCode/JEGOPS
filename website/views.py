@@ -25,9 +25,6 @@ def dashboard():
     if request.method == 'POST':
         IMEI = request.form.get('imei')
         session['current_device'] = get_device_info(IMEI)
-        print(session['current_device']['Grade'])
-        session['current_device']['Grade'] = 'M'
-        print(session['current_device']['Grade'])
         # print(data)
         if session['current_device']:
             # return redirect(url_for('views.cosmetics', user=current_user))
@@ -54,6 +51,7 @@ def cosmetics():
         except ValueError:
             session['current_device']['BatteryHealthPercentage'] = '0'
 
+        device_cosmetics['cos_tester'] = current_user.user_name
         device_cosmetics['scratches'] = request.form.get('scratches')
         device_cosmetics['dents'] = request.form.get('dents')
 
