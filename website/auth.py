@@ -61,7 +61,7 @@ def singup():
             db.session.add(new_user)
             db.session.commit()
             flash('Account successfully created!', category='success')
-            return redirect(url_for('views.login'))
+            return redirect(url_for('views.home'))
 
     return render_template('signup.html', user=current_user)
 
