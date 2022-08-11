@@ -54,6 +54,9 @@ def cosmetics():
         device_cosmetics['cos_tester'] = current_user.user_name
         device_cosmetics['scratches'] = request.form.get('scratches')
         device_cosmetics['dents'] = request.form.get('dents')
+        device_cosmetics['front_cracks'] = request.form.get('front_cracks')
+        device_cosmetics['rear_cracks'] = request.form.get('rear_cracks')
+        device_cosmetics['spotting'] = request.form.get('spotting')
 
         if request.form.get('lcd-discoloration') == 'True':
             device_cosmetics['lcd_discoloration'] = True
@@ -64,11 +67,6 @@ def cosmetics():
             device_cosmetics['components_missing'] = True
         else:
             device_cosmetics['components_missing'] = False
-
-        if request.form.get('cracks') == 'True':
-            device_cosmetics['cracked'] = True
-        else:
-            device_cosmetics['cracked'] = False
 
         if request.form.get('markings') == 'True':
             device_cosmetics['markings'] = True
@@ -84,21 +82,22 @@ def cosmetics():
         # merge cosmetic dictionary with functionality report temp stored in
         master_dict = {**device_cosmetics, **session['current_device']}
 
-
         # Build a phone object
         test_phone = Phone(imei=session['current_device']['IMEI'],
                            scratches=device_cosmetics['scratches'],
                            dents=device_cosmetics['dents'],
                            lcd_discoloration=bool(device_cosmetics['lcd_discoloration']),
                            missing_parts=bool(device_cosmetics['components_missing']),
-                           cracks=(device_cosmetics['cracked']),
+                           f_cracks=device_cosmetics['front_cracks'],
+                           r_cracks=device_cosmetics['rear_cracks'],
+                           spotting=device_cosmetics['spotting'],
                            markings=bool(device_cosmetics['markings']),
                            battery_life=int(session['current_device']['BatteryHealthPercentage'])
                            )
 
         print(test_phone.cosmetic_report())
-        print(type(test_phone.dent_condition))
-        print(test_phone.dent_condition)
+
+
         grade(test_phone)
 
         master_dict['Grade'] = test_phone.grade
@@ -110,12 +109,13 @@ def cosmetics():
         # test1 = dict2obj(master_dict)
         # print(test1)
         # new_phone = Result(Scratches=test1.scratches,Dents=test1.dents)
-        new_phone = phone.sql_prep(master_dict)
-        db.session.add(new_phone)
-        db.session.commit()
-        test = Result.query.filter_by(IMEI=master_dict['IMEI']).first()
-        print(test.id)
-        print(test.CosmeticTestTime)
+
+        # new_phone = phone.sql_prep(master_dict)
+        # db.session.add(new_phone)
+        # db.session.commit()
+        # test = Result.query.filter_by(IMEI=master_dict['IMEI']).first()
+        # print(test.id)
+        # print(test.CosmeticTestTime)
 
         flash('Phone data successfully stored', category='success')
         session['current_device']['Grade'] = test_phone.grade

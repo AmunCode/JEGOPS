@@ -34,7 +34,7 @@ class Phone:
     """
 
     def __init__(self, imei, scratches=None, dents=None, lcd_discoloration=None, missing_parts=None,
-                 cracks=None, markings=None, grade=None, battery_life=0):
+                 f_cracks=None, r_cracks=None, spotting=None, markings=None, grade=None, battery_life=0):
         """
             Constructs all the necessary attributes for the phone object.
 
@@ -52,8 +52,12 @@ class Phone:
                     device lcd discolored (default is None)
                 missing_parts: bool, optional
                     device is missing internal or external parts (default is None)
-                cracks: bool, optional
-                    devices has cracks (default is None)
+                f_cracks: str, optional
+                    devices front has cracks (default is None)
+                r_cracks: str, optional
+                    device rear has cracks (default is None)
+                spotting: str optional
+                    device has spotting on the casing (default  is None)
                 markings bool, optional
                     device has markings (default is None)
                 grade: str, optional
@@ -67,7 +71,9 @@ class Phone:
         self.dent_condition = dents  # none, small, deep
         self.lcd_discolored = lcd_discoloration  # Boolean
         self.missing_parts = missing_parts  # Boolean
-        self.cracked = cracks  # Boolean
+        self.f_cracked = f_cracks  # String
+        self.r_cracked = r_cracks  # String
+        self.spotting = spotting  # string
         self.marked = markings  # Boolean
         self.grade = grade
 
@@ -86,7 +92,9 @@ class Phone:
             "dents": self.dent_condition,
             "lcd discolored": self.lcd_discolored,
             "components": self.missing_parts,
-            "cracked": self.cracked,
+            "front cracked": self.f_cracked,
+            "rear cracked": self.r_cracked,
+            "spotting":self.spotting,
             "markings": self.marked,
             "grade": self.grade
         }
@@ -109,8 +117,10 @@ def sql_prep(test_result: dict):
         Dents=test_result['dents'],
         LcdDiscoloration=test_result['lcd_discoloration'],
         ComponentsMissing=test_result['components_missing'],
-        Cracked=test_result['cracked'],
+        FrontCrack=test_result['front_cracks'],
+        RearCrack=test_result['rear_cracks'],
         Markings=test_result['markings'],
+        Spotting=test_result['spotting'],
         A4ReportLink=test_result['A4ReportLink'],
         A4Reports=test_result['A4Reports'],
         AppVersion=test_result['AppVersion'],

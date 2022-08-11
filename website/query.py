@@ -26,15 +26,21 @@
 
 
 # SQLAlchemy template code - may be simpler not sure if safer.
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from website.models import Result
+# from sqlalchemy import create_engine
+# from sqlalchemy.orm import sessionmaker
+# from website.models import Result
+#
+# engine = create_engine('sqlite:///database.db')
+# Session = sessionmaker(bind=engine)
+# session = Session()
+#
+# for class_instance in session.query(Result).filter_by(IMEI='356442107162533'):
+#     print(class_instance)
+#
+# session.close()
 
-engine = create_engine('sqlite:///database.db')
-Session = sessionmaker(bind=engine)
-session = Session()
 
-for class_instance in session.query(Result).all():
-    print(class_instance.IMEI)
-
-session.close()
+from website import db
+# from .models import User
+#
+# print(User.query.All())

@@ -19,81 +19,93 @@
   <p><input class="form-control" value={{data['BatteryHealthPercentage']}} id="battery" name="battery" readonly oninput="this.className = ''"></p>
   </div>
 
-  <div class="tab">Scratches:
+  <div class="tab">Scratches: What best describes the scratches on this device?
   <br/>
     <fieldset>
     <div class="cos-options">
       <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="light" name="scratches"
                                                                  value="light" oninput="this.className = ''"></p>
-      <p style="display: inline-block; margin-left: 10px"><label for="light">light scratches</label></p>
+      <p style="display: inline-block; margin-left: 10px"><label for="light">Light scratches</label></p>
     </div>
     <div class="cos-options">
       <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="medium" name="scratches"
                                                                  value="medium" ></p>
-      <p style="display: inline-block; margin-left: 10px"><label for="medium">Moderate</label></p>
+      <p style="display: inline-block; margin-left: 10px"><label for="medium">Moderate scratches</label></p>
     </div>
     <div class="cos-options">
       <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="Heavy" name="scratches"
                                                                  value="Heavy/Deep" oninput="this.className = ''"></p>
-      <p style="display: inline-block; margin-left: 10px"><label for="Heavy">Heavy/Deep</label></p>
+      <p style="display: inline-block; margin-left: 10px"><label for="Heavy">Heavy/Deep scratches</label></p>
     </div>
     </fieldset>
   </div>
 
-<div class="tab form-select-lg mb-3">Dents:
-  <select class="dent-select " id="dents" name="dents" oninput="this.className = ''">
-      <option  value="None">None   </option>
-      <option  value="Small">Small </option>
-      <option  value="Large">Large </option>
-  </select>
-</div>
+  <div class="tab form-select-lg mb-3">Dents: Are there any dents on the device?
+    <select class="dent-select " id="dents" name="dents" oninput="this.className = ''">
+        <option  value="None">None   </option>
+        <option  value="Small">Small </option>
+        <option  value="Large">Large </option>
+    </select>
+  </div>
 
-<div class="tab">LCD:
-    <fieldset>
-    <div class="cos-options">
-      <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="lcd-discoloration1" name="lcd-discoloration"
-                                                                 value=True oninput="this.className = ''"></p>
-      <p style="display: inline-block; margin-left: 10px"><label for="lcd-discoloration1">Yes</label></p>
-    </div>
-    <div class="cos-options">
-      <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="lcd-discoloration2" name="lcd-discoloration"
-                                                                 value=False ></p>
-      <p style="display: inline-block; margin-left: 10px"><label for="lcd-discoloration2">No</label></p>
-    </div>
-    </fieldset>
-</div>
+  <div class="tab">LCD: Does the LCD show any discoloration?
+      <fieldset>
+      <div class="cos-options">
+        <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="lcd-discoloration1" name="lcd-discoloration"
+                                                                   value=True oninput="this.className = ''"></p>
+        <p style="display: inline-block; margin-left: 10px"><label for="lcd-discoloration1">Yes</label></p>
+      </div>
+      <div class="cos-options">
+        <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="lcd-discoloration2" name="lcd-discoloration"
+                                                                   value=False ></p>
+        <p style="display: inline-block; margin-left: 10px"><label for="lcd-discoloration2">No</label></p>
+      </div>
+      </fieldset>
+  </div>
 
-<div class="tab">Components:
-    <fieldset>
-    <div class="cos-options">
-      <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="missing-components1" name="missing-components"
-                                                                 value=True oninput="this.className = ''"></p>
-      <p style="display: inline-block; margin-left: 10px"><label for="missing-components1">Yes</label></p>
-    </div>
-    <div class="cos-options">
-      <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="missing-components2" name="missing-components"
-                                                                 value=False ></p>
-      <p style="display: inline-block; margin-left: 10px"><label for="missing-components2">No</label></p>
-    </div>
-    </fieldset>
-</div>
+  <div class="tab">Components: Is the device missing any parts (sim tray, ect..)?
+      <fieldset>
+      <div class="cos-options">
+        <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="missing-components1" name="missing-components"
+                                                                   value=True oninput="this.className = ''"></p>
+        <p style="display: inline-block; margin-left: 10px"><label for="missing-components1">Yes</label></p>
+      </div>
+      <div class="cos-options">
+        <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="missing-components2" name="missing-components"
+                                                                   value=False oninput="this.className = ''"></p>
+        <p style="display: inline-block; margin-left: 10px"><label for="missing-components2">No</label></p>
+      </div>
+      </fieldset>
+  </div>
 
-<div class="tab">Cracks:
-  <fieldset>
-    <div class="cos-options">
-      <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="cracks1" name="cracks"
-                                                                 value=True oninput="this.className = ''"></p>
-      <p style="display: inline-block; margin-left: 10px"><label for="cracks1">Yes</label></p>
-    </div>
-    <div class="cos-options">
-      <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="cracks2" name="cracks"
-                                                                 value=False ></p>
-      <p style="display: inline-block; margin-left: 10px"><label for="cracks2">No</label></p>
-    </div>
-  </fieldset>
-</div>
+  <div class="tab">Front Damage: Does the device have any cracks on the front side?
+    <select class="form-select" id='front_cracks' name='front_cracks' oninput="this.className = ''" aria-label="Default select example">
+      <option selected>Select menu</option>
+      <option value="None">None</option>
+      <option value="small">Small</option>
+      <option value="large">Large/Shattered</option>
+    </select>
+  </div>
 
-<div class="tab">Markings:
+  <div class="tab">Rear Damage: Does the device have any cracks on the back side?
+    <select class="form-select" id='rear_cracks' name='rear_cracks' oninput="this.className = ''" aria-label="Default select example">
+      <option selected>Select menu</option>
+      <option value="None">None</option>
+      <option value="small">Small</option>
+      <option value="large">Large/Shattered</option>
+    </select>
+  </div>
+
+  <div class="tab">Spotting: Does the device have spotting on the front or back?
+    <select class="form-select" id='spotting' name='spotting' oninput="this.className = ''" aria-label="Default select example">
+      <option selected>Select menu</option>
+      <option value="None">None</option>
+      <option value="small">Small</option>
+      <option value="large">Large/Shattered</option>
+    </select>
+  </div>
+
+<div class="tab">Markings: Does the device have any engraving or branding?
   <fieldset>
     <div class="cos-options">
       <p style="display: inline-block; margin-left: 10px"><input type="radio" class="radio" id="markings1" name="markings"
@@ -117,6 +129,8 @@
 
 <!-- Circles which indicates the steps of the form: -->
 <div style="text-align:center;margin-top:40px;">
+  <span class="step"></span>
+  <span class="step"></span>
   <span class="step"></span>
   <span class="step"></span>
   <span class="step"></span>
